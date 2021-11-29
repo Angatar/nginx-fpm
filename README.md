@@ -26,11 +26,12 @@ Docker hub repository: https://hub.docker.com/r/d3fk/nginx-fpm/
 ```sh
 docker run -p 80:80 d3fk/nginx-fpm
 ```
-This nginx container is configured to serve any upstream FastCGI content provided by an application(available on port 9000) on the same sub-network or linked (--link option); the upstream FastCGI application name should be resolved by using "fpm-app" for name by default (the name "fpm-app" of the FastCGI upstream app can be adapted with ENV vars) ... see ENVIRONMENT section.
+This nginx container is configured to serve any upstream FastCGI content provided by an application(available on port 9000) on the same sub-network or linked (--link option); the upstream FastCGI application name should be resolved by using "fpm-app" for name by default (the name "fpm-app" of the FastCGI upstream app can be adapted with ENV vars ... see ENVIRONMENT section).
 
 ## ENVIRONMENT
--```NGINX_HOST```: the server hostname, its default value is set to "localhost" but you can override it with your domain name on run.
--```NGINX_UPSTREAM_NAME```: the FastCGI upstream name that can be reached on port 9000. It can be the name of an fpm container on the same subnetwork (docker using its own DNS to resolve the name) or using the --link option (docker maintains /etc/hosts up to date on containers using the --link option) or even any "url or ip" of an fpm app that can be reached on port 9000 (it is recommended to not expose your fpm port to the world). The default value is set to "fpm-app" so that this container will by default try to reach any fpm app that resolves with the name "fpm-app" on port 9000.
+- ```NGINX_HOST```: the server hostname, its default value is set to "localhost" but you can override it with your domain name on run.
+
+- ```NGINX_UPSTREAM_NAME```: the FastCGI upstream name that can be reached on port 9000. It can be the name of an fpm container on the same subnetwork (docker using its own DNS to resolve the name) or using the --link option (docker maintains /etc/hosts up to date on containers using the --link option) or even any "url or ip" of an fpm app that can be reached on port 9000 (it is recommended to not expose your fpm port to the world). The default value is set to "fpm-app" so that this container will by default try to reach any fpm app that resolves with the name "fpm-app" on port 9000.
 
 ## More advanced usage and examples
 ```sh
