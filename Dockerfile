@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM nginx:1.22.0-alpine
 LABEL org.opencontainers.image.authors="d3fk"
 ENV NGINX_HOST=localhost
 ENV NGINX_UPSTREAM_NAME=fpm-app
